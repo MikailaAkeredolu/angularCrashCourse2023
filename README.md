@@ -1,5 +1,5 @@
-# Angularcrashcourse
-slides - https://docs.google.com/presentation/d/1Up7F_K0qRtXF1DBF_hcfNIRVE47dO8Dox9IrQIgmuMA/edit?usp=sharing
+# Angularcrashcourse2023
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
 
