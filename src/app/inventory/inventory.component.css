@@ -1,0 +1,17 @@
+.featured{
+  background-color: yellow;
+}
+li{
+   list-style-type: none;
+   border: dashed green;
+}
+
+img{
+   max-width: 50px;
+}
+
+.table{
+width: 70%;
+margin: auto;
+}
+
