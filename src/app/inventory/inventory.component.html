@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row">
-    <div
+
+  <div
       *ngIf="qtyCount() === 1"
-      style="text-align: center; padding: 15px; color: green; font-weight: bold"
+      style="text-align: center; padding: 15px; color: green; font-weight: bold;"
     >
-      You have {{ qtyCount() }} item in your cart
+          You have {{ qtyCount() }} item in your cart
+
     </div>
+    <br>
 
     <div
       *ngIf="qtyCount() !== 1"
@@ -13,20 +16,28 @@
     >
       You have {{ qtyCount() }} items in your cart
     </div>
-
+    <br>
     <table class="table">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Item</th>
           <th scope="col">Name</th>
           <th scope="col">Price</th>
+          <!-- <th scope="col">Rating</th> -->
+          <th scope="col"></th>
+          <th scope="col">Message</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let i of inventory" [class.featured]="i.featured">
+        <tr
+          *ngFor="let i of inventory"
+          [class.featured]="i.featured"
+          [class.recyclable]="i.recyclable"
+        >
           <td><img [src]="i.image" /></td>
           <td>{{ i.name }}</td>
           <td>{{ i.price | currency }}</td>
+          <!-- <td style="font-size: 25px;">{{i.rating}}</td> -->
           <td>
             <button
               type="button"
@@ -41,14 +52,10 @@
               [(ngModel)]="i.qty"
               min="0"
               oninput="validity.valid||(value='');"
-              style="margin: 15px"
+              style="margin: 15px; max-width: 40px; text-align: center"
             />
 
-            <button
-              type="button"
-              (click)="increaseQty(i)"
-              class="btn btn-primary"
-            >
+            <button type="button" (click)="increaseQty(i)" class="btn btn-primary">
               +
             </button>
           </td>
@@ -58,10 +65,7 @@
           <td *ngIf="i.qty === 0">
             <b style="color: red">No {{ i.name }} today? </b>
           </td>
-          <td
-            *ngIf="i.qty > i.inStock"
-            style="padding-top: 30px; color: purple"
-          >
+          <td *ngIf="i.qty > i.inStock" style="padding-top: 30px; color: black">
             We've got only {{ stockCount(i) }} {{ i.name }} left in stock.
           </td>
         </tr>
@@ -72,9 +76,24 @@
       <h3 style="text-align: center">
         <b>Your total today is : {{ totalPrice() | currency }}</b>
         <br />
-        <br>
-        <small>Powered by Tech552 LLC </small>
+        <br />
+
       </h3>
     </div>
+
+    <div class="card" style="width: 18rem;text-align: center; margin: auto; margin-top: 20px;">
+      <div class="card-body">
+        <h5 class="card-title" style="color: red;">Today's Special</h5>
+        <p class="card-text"> <b>{{randomMessage()}}</b></p>
+
+
+      </div>
+
+    </div>
+
   </div>
+
 </div>
+<br>
+<div style="margin: auto; text-align: center"><a href="https://www.tech552.com" class="card-link"><small>Powered by Tech552 LLC </small></a></div>
+

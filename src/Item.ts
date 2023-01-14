@@ -6,7 +6,9 @@ export class Item{
     price!: number;
     image!: string;
     featured!: boolean;
+    recyclable!: boolean;
     qty!: number;
+    rating!:string;
 }
 
 /*

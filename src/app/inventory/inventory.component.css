@@ -1,5 +1,7 @@
+
+
 .featured{
-  background-color: yellow;
+  background-color: rgb(114, 227, 142);
 }
 li{
    list-style-type: none;
@@ -7,7 +9,7 @@ li{
 }
 
 img{
-   max-width: 50px;
+   max-width: 75px;
 }
 
 .table{
@@ -15,3 +17,11 @@ width: 70%;
 margin: auto;
 }
 
+
+.recyclable{
+border: dotted 2px black;
+}
+
+.card{
+  border: 2px dotted black;
+}
